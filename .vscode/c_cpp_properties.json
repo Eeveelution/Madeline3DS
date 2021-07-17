@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/devkitPro/libctru/include",
+                "C:/devkitPro/devkitARM/lib/gcc/arm-none-eabi/11.1.0/include",
+                "C:\\devkitPro\\libctru\\include\\3ds"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-gcc-x64",
+            "compilerPath": "C:\\devkitPro\\devkitARM\\bin\\arm-none-eabi-c++.exe"
+        }
+    ],
+    "version": 4
+}
