@@ -26,7 +26,14 @@ namespace Game {
 
         }
         void DrawTop(double deltaTime)  override {
+            C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
 
+            C2D_TargetClear(this->_topTarget, C2D_Color32(0xFF, 0xD8, 0xB0, 0x68));
+            C2D_SceneBegin(this->_topTarget);
+
+            C2D_DrawRectangle(50, 50, 0, 250, 250, 128, 128, 128, 128);
+
+            C3D_FrameEnd(0);
         }
         void DrawBottom(double deltaTime) override {
 
