@@ -33,6 +33,8 @@ namespace Madeline {
             this->_top = C2D_CreateScreenTarget(GFX_TOP, GFX_LEFT);
             this->_bottom = C2D_CreateScreenTarget(GFX_BOTTOM, GFX_LEFT);
 
+            this->_game->InitializeTargets(this->_top, this->_bottom);
+
             u64 deltaNow = Madeline::Helpers::GetTimeNowMilliseconds();
             u64 deltaLast = 0;
 
@@ -51,8 +53,8 @@ namespace Madeline {
                 this->_game->Update(deltaTime);
 
                 //Draw both Screens
-                this->_game->DrawTop(this->_top, deltaTime);
-                this->_game->DrawBottom(this->_bottom, deltaTime);
+                this->_game->DrawTop(deltaTime);
+                this->_game->DrawBottom(deltaTime);
 
                 //Calulate Delta Time
                 deltaLast = deltaNow;

@@ -4,38 +4,18 @@
 #include <3ds.h>
 #include <citro2d.h>
 
+#include "TestGame.cpp"
+
+#include "../Engine/GameRuntime.cpp"
+
 int GameMain(int argc, char** argv){
-    // Init libs
-	romfsInit();
-	gfxInitDefault();
-	C3D_Init(C3D_DEFAULT_CMDBUF_SIZE);
-	C2D_Init(C2D_DEFAULT_MAX_OBJECTS);
-	C2D_Prepare();
-	consoleInit(GFX_BOTTOM, NULL);
+    Game::TestGame game;
 
-	// Create screens
-	C3D_RenderTarget* top = C2D_CreateScreenTarget(GFX_TOP, GFX_LEFT);
+    Madeline::Runtime::GameRuntime runtime((Madeline::Runtime::Game*)&game);
 
-	// Main loop
-	while (aptMainLoop())
-	{
-		hidScanInput();
+    runtime.RunGame();
 
-		// Respond to user input
-		u32 kDown = hidKeysDown();
-		u32 kHeld = hidKeysHeld();
 
-		if (kDown & KEY_START)
-			break; // break in order to return to hbmenu
-
-	}
-
-	// Deinit libs
-	C2D_Fini();
-	C3D_Fini();
-	gfxExit();
-	romfsExit();
-	
 	return 0;
 }
 
