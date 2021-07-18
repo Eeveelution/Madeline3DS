@@ -7,9 +7,7 @@
 namespace Game {
     class TestGame : Madeline::Runtime::Game {
         void Initialize() override {
-            printf("Initializing...\n");
-
-            
+            printf("Initializing...\n");   
         }
 
         void Cleanup() override {
@@ -22,22 +20,32 @@ namespace Game {
         }
 
         void Update(double deltaTime) override {
-            printf("Updating...\n");
+
         }
         void DrawTop(double deltaTime)  override {
-            printf("Drawing Top...");
-
             C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
+
+            C3D_FrameDrawOn(this->_topTarget);
 
             C2D_TargetClear(this->_topTarget, C2D_Color32(0xFF, 0xD8, 0xB0, 0x68));
             C2D_SceneBegin(this->_topTarget);
 
-            C2D_DrawRectangle(50, 50, 0, 250, 250, 128, 128, 128, 128);
+            C2D_DrawCircle(25, 25, 0, 25, C2D_Color32(0xFF, 0x00, 0x00, 0xFF), C2D_Color32(0xFF, 0x00, 0x00, 0xFF), C2D_Color32(0xFF, 0x00, 0x00, 0xFF), C2D_Color32(0xFF, 0xFF, 0xFF, 0xFF));
 
             C3D_FrameEnd(0);
         }
         void DrawBottom(double deltaTime) override {
-            printf("Drawing Bottom...");
+            C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
+
+            C3D_FrameDrawOn(this->_botTarget);
+
+            C2D_TargetClear(this->_botTarget, C2D_Color32(0xFF, 0xD8, 0xB0, 0x68));
+            C2D_SceneBegin(this->_botTarget);
+
+            C2D_DrawCircle(25, 25, 0, 25, C2D_Color32(0xFF, 0x00, 0x00, 0xFF), C2D_Color32(0xFF, 0x00, 0x00, 0xFF), C2D_Color32(0xFF, 0x00, 0x00, 0xFF), C2D_Color32(0xFF, 0xFF, 0xFF, 0xFF));
+
+            C3D_FrameEnd(0);
+
         }
 
          void OnKeyDown(int keys) override { }
