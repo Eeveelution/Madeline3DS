@@ -7,15 +7,14 @@
 namespace Game {
     class TestGame : Madeline::Runtime::Game {
         void Initialize() override {
-            romfsInit();
-	        gfxInitDefault();
-	        C3D_Init(C3D_DEFAULT_CMDBUF_SIZE);
-	        C2D_Init(C2D_DEFAULT_MAX_OBJECTS);
-	        C2D_Prepare();
-	        consoleInit(GFX_BOTTOM, NULL);
+            printf("Initializing...\n");
+
+            
         }
 
         void Cleanup() override {
+            printf("Cleaning up...");
+
             C2D_Fini();
 	        C3D_Fini();
 	        gfxExit();
@@ -23,9 +22,11 @@ namespace Game {
         }
 
         void Update(double deltaTime) override {
-
+            printf("Updating...\n");
         }
         void DrawTop(double deltaTime)  override {
+            printf("Drawing Top...");
+
             C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
 
             C2D_TargetClear(this->_topTarget, C2D_Color32(0xFF, 0xD8, 0xB0, 0x68));
@@ -36,7 +37,7 @@ namespace Game {
             C3D_FrameEnd(0);
         }
         void DrawBottom(double deltaTime) override {
-
+            printf("Drawing Bottom...");
         }
 
          void OnKeyDown(int keys) override { }

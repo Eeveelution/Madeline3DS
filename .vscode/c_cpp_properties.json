@@ -15,7 +15,7 @@
             ],
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "linux-gcc-x64",
+            "intelliSenseMode": "windows-msvc-arm",
             "compilerPath": "C:\\devkitPro\\devkitARM\\bin\\arm-none-eabi-c++.exe"
         }
     ],
